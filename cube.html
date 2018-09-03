@@ -1,0 +1,35 @@
+<style>
+* { margin: 0; }
+.perspective { perspective: 80vmin; margin: 50vh 50vw; }
+.scene { transform-style: preserve-3d; position: fixed; width: 30vmin; height: 20vmin; transform: translateX(-50%) translateY(-50%) rotateX(30deg) }
+.cube { transform-style: preserve-3d; position: fixed; }
+.cube .face { border: 1px solid #8888; width: 20vmin; height: 20vmin; position: fixed; background: #def8; }
+.cube .face.top { transform: translateZ(20vmin); }
+.cube .face.left { transform: rotateY(90deg) translate(-10vmin) translateZ(-10vmin); }
+.cube .face.right { transform: rotateY(90deg) translate(-10vmin) translateZ(10vmin)); }
+.cube .face.front { transform: rotateX(90deg) translateY(10vmin) translateZ(-10vmin); }
+.cube .face.back { transform: rotateX(90deg) translateY(10vmin) translateZ(10vmin); }
+.cube .face.bottom { }
+</style>
+<div class="perspective">
+  <div class="scene">
+    <div class="cube">
+      <p class="face top">
+      <p class="face left">
+      <p class="face right">
+      <p class="face front">
+      <p class="face back">
+      <p class="face bottom">
+    </div>
+    
+    <div class="cube" style="transform: translateX(20vmin) translateY(20vmin) translateZ(-20vmin) rotateX(45deg) rotateY(45deg) rotateZ(45deg) scale(.5) scaleZ(.5)">
+      <p class="face top">
+      <p class="face left">
+      <p class="face right">
+      <p class="face front">
+      <p class="face back">
+      <p class="face bottom">
+    </div>
+    
+  </div>
+</div>
