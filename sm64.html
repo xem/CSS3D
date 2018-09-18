@@ -1,49 +1,35 @@
 <style>
 * { margin: 0; }
 .perspective { perspective: 120vmin; margin: 60vh 50vw; }
-.camera { transform-style: preserve-3d; position: fixed; transform: translateX(-30vmin) translateY(-30vmin) rotateX(50deg) }
-.scene { transform-style: preserve-3d; position: fixed; width: 60vmin; height: 60vmin; background: #def8; }
-.cube { transform-style: preserve-3d; position: fixed; }
-.cube .face { border: 1px solid #ccc; width: 20vmin; height: 20vmin; position: fixed; background: #eee; }
-.cube .face.top { transform: translateZ(20vmin); }
-.cube .face.left { transform: rotateY(90deg) translate(-10vmin) translateZ(-10vmin); }
-.cube .face.right { transform: rotateY(90deg) translate(-10vmin) translateZ(10vmin)); }
-.cube .face.front { transform: rotateX(90deg) translateY(10vmin) translateZ(-10vmin); }
-.cube .face.back { transform: rotateX(90deg) translateY(10vmin) translateZ(10vmin); }
+.camera { transform-style: preserve-3d; position: fixed; transform: translateX(-26vmin) translateY(-28vmin) translateZ(8vmin) rotateX(50deg) rotateZ(30deg) }
+#scene { transform-style: preserve-3d; position: fixed; width: 60vmin; height: 60vmin; }
+.cube { transform-style: preserve-3d; position: fixed; top: 0; left: 0; }
+.cube .face { width: 4vmin; height: 4vmin; position: fixed; }
+.cube .face.top { transform: translateZ(4vmin); }
+.cube .face.left { transform: rotateY(90deg) translate(-2vmin) translateZ(-2vmin); }
+.cube .face.right { transform: rotateY(90deg) translate(-2vmin) translateZ(2vmin)); }
+.cube .face.front { transform: rotateX(90deg) translateY(2vmin) translateZ(-2vmin); }
+.cube .face.back { transform: rotateX(90deg) translateY(2vmin) translateZ(2vmin); }
 .pyramid { transform-style: preserve-3d; position: fixed; }
 .pyramid .face { position: fixed; transform-origin: center center; border-left: 10vmin solid transparent; border-right: 10vmin solid transparent; }
-.pyramid .face.front { transform: translateZ(9vmin) translateY(5vmin) rotateX(-60deg) rotateZ(0deg); border-bottom: 20vmin solid #f88; }
-.pyramid .face.back { transform: translateZ(9vmin) translateY(-5vmin) rotateX(60deg) rotateZ(180deg); border-bottom: 20vmin solid #fbb; }
-.pyramid .face.left { transform: translateZ(9vmin) translateX(-5vmin) rotateY(-60deg) rotateZ(90deg); border-bottom: 20vmin solid #faa; }
-.pyramid .face.right { transform: translateZ(9vmin) translateX(5vmin) rotateY(60deg) rotateZ(-90deg); border-bottom: 20vmin solid #fbb; }
+.pyramid .face.front { transform: translateZ(9vmin) translateY(5vmin) rotateX(-60deg) rotateZ(0deg); border-bottom: 20vmin solid #090; }
+.pyramid .face.back { transform: translateZ(9vmin) translateY(-5vmin) rotateX(60deg) rotateZ(180deg); border-bottom: 20vmin solid #090; }
+.pyramid .face.left { transform: translateZ(9vmin) translateX(-5vmin) rotateY(-60deg) rotateZ(90deg); border-bottom: 20vmin solid #090; }
+.pyramid .face.right { transform: translateZ(9vmin) translateX(5vmin) rotateY(60deg) rotateZ(-90deg); border-bottom: 20vmin solid #090; }
+.pyramid.red .face { border-bottom: 20vmin solid #b31 !important }
 </style>
 <div class="perspective">
   <div class="camera">
-    <div class="scene">
-      <div class="cube">
-        <p class="face top">
-        <p class="face left">
-        <p class="face right">
-        <p class="face front">
-        <p class="face back">
-        <p class="face bottom">
-      </div>
-      <div class="pyramid" style="transform: translateY(40vmin)">
-        <p class="face bottom">
+    <div id="scene">
+      
+      <div class="pyramid red" style="transform: translateX(10vmin) translateY(-12vmin) translateZ(20vmin) scaleX(2.5) scaleY(2) scaleZ(1)">
         <p class="face left">
         <p class="face right">
         <p class="face front">
         <p class="face back">
       </div>
-      <div class="pyramid" style="transform: translateX(20vmin)translateY(40vmin) scaleZ(-1)">
-        <p class="face bottom">
-        <p class="face left">
-        <p class="face right">
-        <p class="face front">
-        <p class="face back">
-      </div>
-      <div class="pyramid" style="transform: translateX(40vmin)translateY(40vmin) scaleX(2)">
-        <p class="face bottom">
+      
+      <div class="pyramid" style="transform: translateX(-26vmin) translateY(-30vmin) translateZ(22vmin) scaleX(6) scaleY(5) scaleZ(-2.5)">
         <p class="face left">
         <p class="face right">
         <p class="face front">
@@ -52,3 +38,42 @@
     </div>
   </div>
 </div>
+<script>
+
+
+
+map =
+'233333333333333332'+
+'233333333333333332'+
+'233333333333333332'+
+'000333333333333112'+
+'000333333333333012'+
+'210333333333333012'+
+'210333333333333012'+
+'210000000000000012'+
+'210000000000000012'+
+'211111111111110112'+
+'222211111122220222'+
+'222211222222110000'+
+'222211222222110000'+
+'222211111222000000'+
+'222211111222000000';
+
+for(i = 0; i < 15; i++){
+  for(j = 0; j < 18; j++){
+    //if(map[i*18+j] != 0)
+    
+      scene.innerHTML +=
+      `<div class="cube" style="transform: translateY(${i*4}vmin) translateX(${j*4}vmin) scaleZ(${[1,2,3,5][map[i*18+j]]})">
+        <p class="face top" style="background:#${['349c','ed7','0a0','ddd'][map[i*18+j]]}">
+        <p class="face left" style="background:#${['','ed7','0a0','ddd'][map[i*18+j]]}">
+        <p class="face right" style="background:#${['','ed7','0a0','ddd'][map[i*18+j]]}">
+        <p class="face front" style="background:#${['','fe8','0c0','edd'][map[i*18+j]]}">
+        <p class="face back" style="background:#${['','ed7','0a0','ddd'][map[i*18+j]]}">
+        <p class="face bottom" style="background:#${['','ed7','0a0','ddd'][map[i*18+j]]}">
+      </div>`;
+  }
+}
+
+
+</script>
