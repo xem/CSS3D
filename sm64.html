@@ -2,9 +2,9 @@
 <script>
 
 b.innerHTML=`<div style=perspective:120vh;margin:50vh+50vw>
-<div style="transform-style:preserve-3d;position:fixed;transform:translateX(-20vh)translateY(-11vh)translateZ(-20vh)rotateX(51deg)rotateZ(384deg)">
-<div id=scene style="transform-style:preserve-3d;position:fixed;width:72vh;height:48vh;background:#19c;animation:a 9s infinite">
-<style>@keyframes a{50%{transform:rotateZ(-50deg)}}`;
+<div style=transform-style:preserve-3d;position:fixed;transform:translateX(-20vh)translateY(-11vh)translateZ(-20vh)rotateX(51deg)rotateZ(384deg>
+<div id=scene style=transform-style:preserve-3d;position:fixed;width:72vh;height:48vh;background:#19c;animation:a+9s>
+<style>@keyframes a{50%{transform:rotateZ(-50deg`;
 map =
 '055000000000000552'+
 '000500067760005012'+
@@ -18,22 +18,22 @@ map =
 '222211222222100000'+
 '222211111222000000'+
 '222211111222000000';
-for(i=0;i<15;i++){
-for(j=0;j<18;j++){
+for(i=12;i--;){
+for(j=18;j--;){
 if(+map[i*18+j])
-scene.innerHTML+=`<div style="transform-style:preserve-3d;position:fixed;top:0;left:0;transform: translateY(${i*4+(map[i*18+j]==4?-15:0)}vh)translateX(${j*4}vh)translateZ(${[1,1,1,2,1,1,1,1,13][map[i*18+j]]}vh)scaleX(1.1)scaleY(${map[i*18+j]==4?5:1.1})scaleZ(${[,.5,.8,.2,.2,5,8,11,2][map[i*18+j]]})">
-<p style="width:4vh;height:4vh;position:fixed;background:#${['349','ed7','0a0','DA4'][map[i*18+j]]||'ddd'};transform:translateZ(4vh)">
-<p style="width:4vh;height:4vh;position:fixed;background:#${['','ed7','0a0','DA4'][map[i*18+j]]||'ddd'};transform:rotateY(90deg)translate(-2vh)translateZ(-2vh)">
-<p style="width:4vh;height:4vh;position:fixed;background:#${['','ed7','0a0','DA4'][map[i*18+j]]||'ddd'};transform:rotateY(90deg)translate(-2vh)translateZ(2vh)">
-<p style="width:4vh;height:4vh;position:fixed;background:#${['','fe8','0c0','DA4'][map[i*18+j]]||'edd'};transform: rotateX(90deg) translateY(2vh) translateZ(-2vh)">`;
+scene.innerHTML+=`<div style=transform-style:preserve-3d;position:fixed;top:0;left:0;transform:translateY(${i*4+(map[i*18+j]==4?-15:0)}vh)translateX(${j*4}vh)translateZ(${[1,1,1,2,1,1,1,1,13][map[i*18+j]]}vh)scaleX(1.1)scaleY(${map[i*18+j]==4?5:1.1})scaleZ(${[,.5,.8,.2,.2,5,8,11,2][map[i*18+j]]}>
+<p style=width:4vh;height:4vh;position:fixed;background:#${['349','ed7','0a0','DA4'][map[i*18+j]]||'ddd'};transform:translateZ(4vh>
+<p style=width:4vh;height:4vh;position:fixed;background:#${[,'ed7','0a0','DA4'][map[i*18+j]]||'ddd'};transform:rotateY(90deg)translate(-2vh)translateZ(-2vh>
+<p style=width:4vh;height:4vh;position:fixed;background:#${[,'ed7','0a0','DA4'][map[i*18+j]]||'ddd'};transform:rotateY(90deg)translate(-2vh)translateZ(2vh>
+<p style=width:4vh;height:4vh;position:fixed;background:#${[,'fe8','0c0','DA4'][map[i*18+j]]||'edd'};transform:rotateX(90deg)translateY(2vh)translateZ(-2vh>`;
 }
 }
 
 for(i=0;i<7;i++){
-scene.innerHTML += 
-`<div style="transform-style:preserve-3d;position: fixed;transform:translateX(${[10,26,31,2,59,54,10][i]}vh)translateY(${[-11,-6,2,-5,-5,14,14][i]}vh)translateZ(${[20.9,33,45,21,21,21,21][i]}vh)scaleX(${[2.5,1,.5,.5,.5,.3,.3][i]})scaleY(${[1.5,1,.5,.5,.5,.3,.3][i]})scaleZ(.5)">
-<p style="position:fixed;transform-origin:center center;height:20vmin;width:20vmin;background:#b31;clip-path:polygon(50% 0%,0 100%,100% 100%);transform:translateZ(9vmin)translateY(4.95vmin)rotateX(-60deg)">
-<p style="position:fixed;transform-origin:center center;height:20vmin;width:20vmin;background:#b31;clip-path:polygon(50% 0%,0 100%,100% 100%);transform:translateZ(9vh)translateX(-4.95vh)rotateY(-60deg)rotateZ(90deg)">
-<p style="position:fixed;transform-origin:center center;height:20vmin;width:20vmin;background:#b31;clip-path:polygon(50% 0%,0 100%,100% 100%);transform:translateZ(9vh)translateX(4.95vh)rotateY(60deg)rotateZ(-90deg);background: #a31">`;
+scene.innerHTML+=
+`<div style=transform-style:preserve-3d;position:fixed;transform:translateX(${[10,26,31,2,59,54,10][i]}vh)translateY(${[-11,-6,2,-5,-5,14,14][i]}vh)translateZ(${[20.9,33,45,21,21,21,21][i]}vh)scaleX(${[2.5,1,.5,.5,.5,.3,.3][i]})scaleY(${[1.5,1,.5,.5,.5,.3,.3][i]})scaleZ(.5>
+<p style=position:fixed;transform-origin:center,center;height:20vmin;width:20vmin;background:#b31;clip-path:polygon(50%+0%,0+100%,100%+100%);transform:translateZ(9vmin)translateY(4.95vmin)rotateX(-60deg>
+<p style=position:fixed;transform-origin:center,center;height:20vmin;width:20vmin;background:#b31;clip-path:polygon(50%+0%,0+100%,100%+100%);transform:translateZ(9vh)translateX(-4.95vh)rotateY(-60deg)rotateZ(90deg>
+<p style=position:fixed;transform-origin:center,center;height:20vmin;width:20vmin;background:#a31;clip-path:polygon(50%+0%,0+100%,100%+100%);transform:translateZ(9vh)translateX(4.95vh)rotateY(60deg)rotateZ(-90deg>`;
 }
 </script>
