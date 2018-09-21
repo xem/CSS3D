@@ -1,125 +1,42 @@
-<style>
-* { margin: 0; box-sizing: border-box; }
-.perspective { perspective: 120vh; margin: 60vh 50vw; }
-.camera { transform-style: preserve-3d; position: fixed; transform: translateX(-36vh) translateY(-17vh) translateZ(-20vh) rotateX(51deg) rotateZ(384deg) }
-#scene { transform-style: preserve-3d; position: fixed; width: 72vh; height: 60vh; background: #349c}
-.cube { transform-style: preserve-3d; position: fixed; top: 0; left: 0; transform: scale(1.2)}
-.cube .face { width: 4vh; height: 4vh; position: fixed; }
-.cube .face.top { transform: translateZ(4vh); }
-.cube .face.left { transform: rotateY(90deg) translate(-2vh) translateZ(-2vh); }
-.cube .face.right { transform: rotateY(90deg) translate(-2vh) translateZ(2vh); }
-.cube .face.front { transform: rotateX(90deg) translateY(2vh) translateZ(-2vh); }
-.cube .face.back { transform: rotateX(90deg) translateY(2vh) translateZ(2vh); }
-.pyramid { transform-style: preserve-3d; position: fixed; }
-
-.pyramid .face { position: fixed; transform-origin: center center; height: 20vmin; width: 20vmin; clip-path: polygon(50% 0%, 0 100%, 100% 100%); background:#090}
-.pyramid .face.front { transform: translateZ(9vmin) translateY(4.95vmin) rotateX(-60deg); }
-.pyramid .face.back { transform: translateZ(9vh) translateY(-4.95vh) rotateX(60deg) rotateZ(180deg); border-bottom: 20vh solid #090; }
-.pyramid .face.left { transform: translateZ(9vh) translateX(-4.95vh) rotateY(-60deg) rotateZ(90deg); border-bottom: 20vh solid #090; }
-.pyramid .face.right { transform: translateZ(9vh) translateX(4.95vh) rotateY(60deg) rotateZ(-90deg); border-bottom: 20vh solid #090; }
-
-
-.pyramid.red .face { border-bottom: 20vh solid #b31 !important }
-.pyramid.red .face.right { border-bottom: 20vh solid #a31 !important }
-</style>
-<div class="perspective">
-  <div class="camera">
-    <div id="scene">
-      
-      <div class="pyramid red" style="transform: translateX(10vh) translateY(-1vh) translateZ(20.9vh) scaleX(2.5) scaleY(1.5) scaleZ(.5)">
-        <p class="face left">
-        <p class="face right">
-        <p class="face front">
-        <p class="face back">
-      </div>
-      
-      <div class="pyramid red" style="transform: translateX(26vh) translateY(4vh) translateZ(33vh) scaleZ(.5)">
-        <p class="face left">
-        <p class="face right">
-        <p class="face front">
-        <p class="face back">
-      </div>
-      
-      <div class="pyramid red" style="transform: translateX(31vh) translateY(11vh) translateZ(45vh) scaleX(.5) scaleY(0.5) scaleZ(.5)">
-        <p class="face left">
-        <p class="face right">
-        <p class="face front">
-        <p class="face back">
-      </div>
-      
-      <div class="pyramid red" style="transform: translateX(2vh) translateY(2vh) translateZ(21vh) scaleX(.5) scaleY(0.5) scaleZ(.5)">
-        <p class="face left">
-        <p class="face right">
-        <p class="face front">
-        <p class="face back">
-      </div>
-      
-      <div class="pyramid red" style="transform: translateX(59vh) translateY(2vh) translateZ(21vh) scaleX(.5) scaleY(0.5) scaleZ(.5)">
-        <p class="face left">
-        <p class="face right">
-        <p class="face front">
-        <p class="face back">
-      </div>
-      
-      <div class="pyramid red" style="transform: translateX(54vh) translateY(23vh) translateZ(21vh) scaleX(.3) scaleY(.3) scaleZ(.5)">
-        <p class="face left">
-        <p class="face right">
-        <p class="face front">
-        <p class="face back">
-      </div>
-      
-      <div class="pyramid red" style="transform: translateX(10vh) translateY(23vh) translateZ(21vh) scaleX(.3) scaleY(.3) scaleZ(.5)">
-        <p class="face left">
-        <p class="face right">
-        <p class="face front">
-        <p class="face back">
-      </div>
-      
-      <!--<div class="pyramid" style="transform: translateX(-26vh) translateY(-30vh) translateZ(22vh) scaleX(6) scaleY(5) scaleZ(-2.5)">
-        <p class="face left">
-        <p class="face right">
-        <p class="face front">
-        <p class="face back">
-      </div>-->
-    </div>
-  </div>
-</div>
+<body id=b>
 <script>
 
-
-
+b.innerHTML=`<div style=perspective:120vh;margin:50vh+50vw>
+<div style="transform-style:preserve-3d;position:fixed;transform:translateX(-20vh)translateY(-11vh)translateZ(-20vh)rotateX(51deg)rotateZ(384deg)">
+<div id=scene style=transform-style:preserve-3d;position:fixed;width:72vh;height:60vh;background:#19cc>
+<style>@keyframes a{50%{}}`;
 map =
-'233333333333333332'+
-'233333333333333332'+
-'233333344443333332'+
-'000333345543333112'+
-'000333345543333012'+
-'210333344443333012'+
-'210333336633333012'+
+'255555555555555552'+
+'255555555555555552'+
+'255555567765555552'+
+'000555567765555112'+
+'000555567765555012'+
+'210555566665555012'+
+'210555558855555012'+
 '210000000000000012'+
-'210000000000000012'+
-'211111111111110112'+
+'210000004400000012'+
+'211111111111113112'+
 '222211111122220222'+
 '222211222222110000'+
 '222211222222110000'+
 '222211111222000000'+
 '222211111222000000';
-
-for(i = 0; i < 15; i++){
-  for(j = 0; j < 18; j++){
-    if(map[i*18+j] != 0)
-    
-      scene.innerHTML +=
-      `<div class="cube" style="transform: translateY(${i*4}vh) translateX(${j*4}vh) translateZ(${[1,1,1,1,1,1,13][map[i*18+j]]}vh) scale(1.1) scaleZ(${[1,1.5,2,5,8,11,2][map[i*18+j]]}) ">
-        <p class="face top" style="background:#${['349','ed7','0a0'][map[i*18+j]] || 'ddd'}">
-        <p class="face left" style="background:#${['','ed7','0a0'][map[i*18+j]] || 'ddd'}">
-        <p class="face right" style="background:#${['','ed7','0a0'][map[i*18+j]] || 'ddd'}">
-        <p class="face front" style="background:#${['','fe8','0c0'][map[i*18+j]] || 'edd'}">
-        <p class="face back" style="background:#${['','ed7','0a0'][map[i*18+j]] || 'ddd'}">
-        <p class="face bottom" style="background:#${['','ed7','0a0'][map[i*18+j]] || 'ddd'}">
-      </div>`;
-  }
+for(i=0;i<15;i++){
+for(j=0;j<18;j++){
+if(+map[i*18+j])
+scene.innerHTML+=`<div style="transform-style:preserve-3d;position:fixed;top:0;left:0;transform: translateY(${i*4+(map[i*18+j]==4?-9:0)}vh)translateX(${j*4}vh)translateZ(${[1,1,1,4,4,1,1,1,13][map[i*18+j]]}vh)scaleX(1.1)scaleY(${map[i*18+j]==4?3:1.1})scaleZ(${[1,1.5,2,.5,.5,5,8,11,2][map[i*18+j]]})">
+<p style="width:4vh;height:4vh;position:fixed;background:#${['349','ed7','0a0','DA4'][map[i*18+j]]||'ddd'};transform:translateZ(4vh)">
+<p style="width:4vh;height:4vh;position:fixed;background:#${['','ed7','0a0','DA4'][map[i*18+j]]||'ddd'};transform:rotateY(90deg)translate(-2vh)translateZ(-2vh)">
+<p style="width:4vh;height:4vh;position:fixed;background:#${['','ed7','0a0','DA4'][map[i*18+j]]||'ddd'};transform:rotateY(90deg)translate(-2vh)translateZ(2vh)">
+<p style="width:4vh;height:4vh;position:fixed;background:#${['','fe8','0c0','DA4'][map[i*18+j]]||'edd'};transform: rotateX(90deg) translateY(2vh) translateZ(-2vh)">`;
+}
 }
 
-
+for(i=0;i<7;i++){
+scene.innerHTML += 
+`<div style="transform-style:preserve-3d;position: fixed;transform:translateX(${[10,26,31,2,59,54,10][i]}vh)translateY(${[-1,6,11,2,2,23,23][i]}vh)translateZ(${[20.9,33,45,21,21,21,21][i]}vh)scaleX(${[2.5,1,.5,.5,.5,.3,.3][i]})scaleY(${[1.5,1,.5,.5,.5,.3,.3][i]})scaleZ(.5)">
+<p style="position:fixed;transform-origin:center center;height:20vmin;width:20vmin;background:#b31;clip-path:polygon(50% 0%,0 100%,100% 100%);transform:translateZ(9vmin)translateY(4.95vmin)rotateX(-60deg)">
+<p style="position:fixed;transform-origin:center center;height:20vmin;width:20vmin;background:#b31;clip-path:polygon(50% 0%,0 100%,100% 100%);transform:translateZ(9vh)translateX(-4.95vh)rotateY(-60deg)rotateZ(90deg)">
+<p style="position:fixed;transform-origin:center center;height:20vmin;width:20vmin;background:#b31;clip-path:polygon(50% 0%,0 100%,100% 100%);transform:translateZ(9vh)translateX(4.95vh)rotateY(60deg)rotateZ(-90deg);background: #a31">`;
+}
 </script>
